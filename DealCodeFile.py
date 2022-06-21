@@ -3,14 +3,14 @@
 
 import operator
 import os
-
 import MergeStringsFiles
 
 
-def generateCodeFiles(projectPath):
+# 执行 genstrings 命令生成strings文件
+def executeGenstringsShell(projectPath):
     print("代码国际化")
     # 	生成temp文件
-    tempPath = 'tempLocalizableStringsFilePath'
+    tempPath = 'tempLocalizablePath'
     cmdCD = 'cd ' + projectPath
     cmdMKDIR = 'mkdir ' + tempPath
 
@@ -26,9 +26,9 @@ def generateCodeFiles(projectPath):
         return 1
 
 
-# 生成代码文件
+# 生成代码文件对应的strings文件。
 def generateCodeLocalizableFile(sourcePaths, projectPath):
-    tempPath = generateCodeFiles(projectPath)
+    tempPath = executeGenstringsShell(projectPath)
     if tempPath == 1:
         return
     nameString = 'Localizable.strings'
@@ -38,7 +38,7 @@ def generateCodeLocalizableFile(sourcePaths, projectPath):
     os.remove(tempPathFile)
 
 
-# 根据查找所有含有Localizable的文件路径
+# 找所有含有Localizable的文件路径
 def findLocalizableFilesIn(dir):
     resultPaths = []
     # 三个参数：1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
@@ -48,7 +48,6 @@ def findLocalizableFilesIn(dir):
                 filePath = os.path.join(parent) + '/' + filename
                 if filePath not in resultPaths:
                     resultPaths.append(filePath)
-    # print('resultPaths', sourceFilePaths)
     return resultPaths
 
 

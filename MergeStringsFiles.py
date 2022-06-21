@@ -35,6 +35,7 @@ def getCommentOfString(string_txt, suffix_string):
     return commentString
 
 
+# 合并strings文件，orgFilePath原文件，tempFilePath临时文件，将临时文件合并到源文件内
 def dealWithStringsFile(orgFilePath, tempFilePath):
     print('原strings文件        ===', orgFilePath)
     print('新生成strings文件     ===', tempFilePath)

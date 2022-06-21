@@ -15,5 +15,15 @@ ibtool [filePath] --generate-strings-file [resultPath]
 1. 在原文件中删除掉的控件ID信息前面加`//`注释掉
 2. 新文件中添加的空间信息写入原strings文件中
 
+## 纯代码文件处理
+
+纯代码文件可以使用**genstrings**命令来生成strings文件
+
+```
+find . -name \*.m | xargs genstrings -o [resultPath]
+```
+
+新生成的strings文件与原strings文件合并，原理与上面相同
+
 
 
