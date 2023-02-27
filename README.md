@@ -1,6 +1,22 @@
 # iOS项目国际化改造
 
-`python3 AutoLocalizable.py`
+## 使用方式
+
+1、传入路径，此处projectPath为绝对路径
+
+`````
+python3 AutoLocalizable.py [projectPath]
+`````
+
+2、直接将文件放到project工程目录下
+
+```
+python3 AutoLocalizable.py
+```
+
+3、将文件配置到xcode的**run script**上，每次编译直接执行
+
+![image-20230227210609308](http://xingyajie.oss-cn-hangzhou.aliyuncs.com/uPic/image-20230227210609308.png)
 
 ## xib，sb文件处理
 
@@ -24,6 +40,10 @@ find . -name \*.m | xargs genstrings -o [resultPath]
 ```
 
 新生成的strings文件与原strings文件合并，原理与上面相同
+
+
+
+
 
 
 
